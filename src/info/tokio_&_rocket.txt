@@ -1,0 +1,16 @@
+Tokio and Rocket are different libraries with distinct purposes in the Rust ecosystem.
+
+Tokio is an asynchronous runtime that provides the foundation for building asynchronous, event-driven applications in Rust. 
+It focuses on managing asynchronous tasks, scheduling I/O operations, and handling event-driven programming patterns. 
+Tokio is commonly used for developing network servers, clients, and other asynchronous systems.
+
+On the other hand, Rocket is a web framework for Rust that simplifies the development of web applications. 
+It provides abstractions, routing capabilities, and utilities for building RESTful APIs and web services. 
+Rocket includes features like request handling, routing macros, middleware, and request/response processing.
+
+While both Tokio and Rocket are commonly used together in building web applications, they serve different purposes. 
+Tokio provides the asynchronous runtime and I/O handling capabilities, 
+while Rocket provides a higher-level framework for building web applications on top of Tokio or other asynchronous runtimes.
+
+In summary, Tokio is a lower-level library focused on asynchronous programming and I/O handling, 
+while Rocket is a higher-level web framework built on top of Tokio to facilitate web application development.
