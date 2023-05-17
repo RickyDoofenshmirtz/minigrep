@@ -92,3 +92,5 @@ async fn handle_connection(
 
     Ok(())
 }
+
+// curl -X POST -F "file=@/path/to/file" http://localhost:8080/upload
