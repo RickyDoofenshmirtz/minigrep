@@ -1,0 +1,30 @@
+Differences between the `rocket` and `hyper` libraries in Rust:
+
+1. **Web Framework vs. HTTP Library**: 
+    `Rocket` is a full-featured web framework that provides higher-level abstractions and features for building web applications, 
+    while `Hyper` is a lower-level HTTP library that focuses on providing core HTTP functionality.
+
+2. **Abstraction Level**: 
+    `Rocket` provides a higher-level abstraction for building web applications by offering features such as routing, request handling, response generation, middleware, and more. 
+    It aims to provide a productive and ergonomic API for web development. 
+    On the other hand, `Hyper` is a lower-level library that primarily focuses on the HTTP protocol itself, 
+    allowing you to build custom HTTP clients and servers with fine-grained control over the protocol details.
+
+3. **Developer Experience**: 
+    `Rocket` prioritizes developer experience by providing a concise and expressive syntax, automatic request/response parsing, 
+    and a set of convenient macros for defining routes and handling various HTTP methods. 
+    It aims to make web development in Rust straightforward and enjoyable. 
+    `Hyper`, being a lower-level library, requires more manual handling of request/response parsing and building, giving you more control but also requiring more explicit code.
+
+4. **Dependencies**: 
+    `Rocket` is built on top of `Hyper` and other libraries, providing a higher-level abstraction layer. 
+    It includes `Hyper` as one of its dependencies and builds on top of its core functionality. 
+    If you choose to use `Rocket`, you get the benefits of `Hyper` implicitly. 
+    However, if you opt for `Hyper` directly, you have more flexibility and control over the specific features and dependencies you want to use.
+
+In summary, `Rocket` is a web framework that builds on top of `Hyper` and provides a higher-level abstraction for building web applications with a focus on developer productivity and ease of use. 
+`Hyper`, on the other hand, is a lower-level HTTP library that offers more control and flexibility but requires more manual handling of HTTP protocol details.
+
+Your choice between `Rocket` and `Hyper` depends on the level of control, flexibility, and developer experience you desire for your specific use case. 
+If you're looking for a full-featured web framework with higher-level abstractions, `Rocket` can be a great choice. 
+If you prefer a more low-level and customizable HTTP library, `Hyper` might be a better fit.

@@ -1,10 +1,10 @@
-use rocket::{post, routes, Rocket};
 use rocket::data::ByteUnit;
 use rocket::data::Data;
 use rocket::http::Status;
 use rocket::response::status;
+use rocket::{post, routes, Rocket};
 use rusoto_core::Region;
-use rusoto_s3::{PutObjectRequest, S3, S3Client};
+use rusoto_s3::{PutObjectRequest, S3Client, S3};
 use std::io::Read;
 
 #[post("/upload", data = "<data>")]
@@ -22,7 +22,10 @@ async fn upload(data: Data<'_>) -> status::Custom<String> {
     // Read the data from the request body
     let mut buffer = Vec::new();
     if let Err(err) = data.open(ByteUnit::default()).read_to_end(&mut buffer) {
-        return status::Custom(Status::InternalServerError, format!("Error reading request body: {:?}", err));
+        return status::Custom(
+            Status::InternalServerError,
+            format!("Error reading request body: {:?}", err),
+        );
     }
 
     // Create the PutObjectRequest
@@ -36,7 +39,10 @@ async fn upload(data: Data<'_>) -> status::Custom<String> {
     // Upload the object to S3
     match client.put_object(request).await {
         Ok(_) => status::Custom(Status::Ok, "Object uploaded successfully".to_string()),
-        Err(err) => status::Custom(Status::InternalServerError, format!("Error uploading object: {:?}", err)),
+        Err(err) => status::Custom(
+            Status::InternalServerError,
+            format!("Error uploading object: {:?}", err),
+        ),
     }
 }
 
@@ -48,6 +54,5 @@ fn rocket() -> Rocket {
 fn main() {
     rocket().launch();
 }
-
 
 // curl -X POST -H "Content-Type: application/octet-stream" --data-binary @/path/to/file.ext http://localhost:8000/upload

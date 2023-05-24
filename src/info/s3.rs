@@ -1,15 +1,15 @@
 use rusoto_core::Region;
-use rusoto_s3::{S3, S3Client, PutObjectRequest};
+use rusoto_s3::{PutObjectRequest, S3Client, S3};
 
 #[tokio::main]
 async fn main() {
-    // Specify your AWS credentials and region
+    // AWS credentials and region
     let region = Region::default();
 
     // Create an S3 client
     let client = S3Client::new(region);
 
-    // Specify the S3 bucket name and object key
+    // S3 bucket name and object key
     let bucket_name = "your-bucket-name";
     let object_key = "your-object-key";
 
@@ -30,7 +30,6 @@ async fn main() {
         Err(err) => eprintln!("Error uploading object: {:?}", err),
     }
 }
-
 
 // [dependencies]
 // rusoto_core = "0.43"

@@ -3,6 +3,8 @@ use std::process;
 
 use minigrap::Config;
 
+mod info;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 

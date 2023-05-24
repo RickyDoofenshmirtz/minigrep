@@ -11,7 +11,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Load AWS credentials and region
     let access_key = env::var("AWS_ACCESS_KEY_ID").expect("AWS_ACCESS_KEY_ID not set");
     let secret_key = env::var("AWS_SECRET_ACCESS_KEY").expect("AWS_SECRET_ACCESS_KEY not set");
-    let region = Region::new("us-east-1"); // Replace with your desired AWS region
+    let region = Region::new("us-east-1"); // AWS region
 
     // Configure AWS S3 client
     let config = Config::builder()
